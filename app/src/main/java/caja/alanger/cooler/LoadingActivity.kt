@@ -8,18 +8,17 @@ import android.os.Handler
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : Activity() {
+class LoadingActivity : Activity() {
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_loading2)
 
         fabMain.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                startActivity(Intent(this@MainActivity, LoadingActivity::class.java))
-
+                startActivity(Intent(this@LoadingActivity, MainActivity::class.java))
             }
         })
     }
