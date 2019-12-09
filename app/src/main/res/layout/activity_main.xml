@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -92,7 +92,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/main_tViewTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="81.1°"
@@ -108,10 +108,10 @@
                     android:layout_height="wrap_content"
                     android:text="Temperatura"
                     android:textColor="@color/colorTextSecondary"
-                    app:layout_constraintBottom_toTopOf="@+id/textView2"
-                    app:layout_constraintEnd_toEndOf="@+id/textView2"
-                    app:layout_constraintStart_toStartOf="@+id/textView2"
-                    app:layout_constraintTop_toTopOf="@+id/textView2" />
+                    app:layout_constraintBottom_toTopOf="@+id/main_tViewTemp"
+                    app:layout_constraintEnd_toEndOf="@+id/main_tViewTemp"
+                    app:layout_constraintStart_toStartOf="@+id/main_tViewTemp"
+                    app:layout_constraintTop_toTopOf="@+id/main_tViewTemp" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -335,7 +335,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/textView7"
+                            android:id="@+id/main_tViewCPU"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="99%"
@@ -349,9 +349,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="2dp"
                             android:text="CPU"
-                            app:layout_constraintBottom_toTopOf="@+id/textView7"
+                            app:layout_constraintBottom_toTopOf="@+id/main_tViewCPU"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/textView7" />
+                            app:layout_constraintTop_toTopOf="@+id/main_tViewCPU" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -506,6 +506,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 tools:ignore="MissingConstraints" />
                             <TextView
+                                android:id="@+id/main_tViewModel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
@@ -532,6 +533,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 tools:ignore="MissingConstraints" />
                             <TextView
+                                android:id="@+id/main_tViewDisplay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
@@ -557,11 +559,14 @@
                                 android:textColor="@color/colorTextPrimary"
                                 app:layout_constraintStart_toStartOf="parent"
                                 tools:ignore="MissingConstraints" />
+
                             <TextView
+                                android:id="@+id/main_tViewRam"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
                                 android:textColor="@color/colorTextSecondary"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 tools:ignore="MissingConstraints" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -584,6 +589,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 tools:ignore="MissingConstraints" />
                             <TextView
+                                android:id="@+id/main_tViewStorage"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
@@ -610,6 +616,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 tools:ignore="MissingConstraints" />
                             <TextView
+                                android:id="@+id/main_tViewResolution"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
@@ -636,6 +643,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 tools:ignore="MissingConstraints" />
                             <TextView
+                                android:id="@+id/main_tViewAndroidVersion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
