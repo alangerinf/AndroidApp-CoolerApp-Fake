@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Cooler</string>
+    <string name="notify_record2">Recording values in the background</string>
+    <string name="menu_record">Record</string>
+    <string name="notify_read2">Reading values in the background</string>
+    <string name="menu_close">Close</string>
+    <string name="notify_record">AnotherMonitor is recording values</string>
+    <string name="menu_stop_record">Stop and save</string>
+    <string name="w_main_storage_permission">AnotherMonitor cannot record values if you don\'t grant Storage permission.
+        Restart the app to show the permission prompt again.</string>
+    <string name="notify_toast_saved">saved in the folder</string>
+    <string name="notify_toast_error">An error happened when saving the CSV file:</string>
+    <string name="notify_toast_error_2">It hasn\'t been possible to start recording:</string>
+    <string name="w_processes_dead_notification">Process dead</string>
 </resources>

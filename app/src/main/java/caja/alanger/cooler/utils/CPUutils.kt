@@ -14,7 +14,7 @@ import java.util.ArrayList
 
 fun takeCpuUsageSnapshot(): ArrayList<OneCpuInfo>? {
     val TAG : String = "takeCpuUsageSnapshot"
-
+    
     // [0] が全体、[1]以降が個別CPU
     val result = ArrayList<OneCpuInfo>()
 
