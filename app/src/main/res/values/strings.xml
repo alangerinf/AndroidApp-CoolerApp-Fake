@@ -12,4 +12,15 @@
     <string name="notify_toast_error">An error happened when saving the CSV file:</string>
     <string name="notify_toast_error_2">It hasn\'t been possible to start recording:</string>
     <string name="w_processes_dead_notification">Process dead</string>
+
+
+
+    <!--TODO: admob publicidad ids-->
+    <string name="appid_admob">ca-app-pub-3940256099942544~3347511713</string>
+    <!--baner-->
+    <string name="adUnitId">ca-app-pub-3940256099942544/6300978111</string>
+    <!--interestial-->
+    <string name="interstitial_ad_unit_id">ca-app-pub-3646684063151292/1149228669</string>
+
+
 </resources>

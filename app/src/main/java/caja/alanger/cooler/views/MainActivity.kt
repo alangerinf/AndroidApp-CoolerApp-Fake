@@ -16,8 +16,12 @@ import android.widget.Toast
 import caja.alanger.cooler.R
 import caja.alanger.cooler.services.ServiceReader
 import caja.alanger.cooler.utils.*
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import jp.takke.cpustats.C
 import jp.takke.cpustats.C.intervalUpdate
+import kotlinx.android.synthetic.main.activity_list_apps.*
+import kotlinx.android.synthetic.main.activity_main.adView
 import java.text.DecimalFormat
 
 
@@ -53,7 +57,10 @@ class MainActivity : Activity() {
 
             }
         })
+        MobileAds.initialize(this)
 
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
     }
     private fun setTextLabelMemory( percent: TextView, values: List<String>) {
@@ -68,6 +75,8 @@ class MainActivity : Activity() {
     public override fun onStart() {
         super.onStart()
         bindService(Intent(this, ServiceReader::class.java), mServiceConnection, 0)
+
+
     }
 
 /*
