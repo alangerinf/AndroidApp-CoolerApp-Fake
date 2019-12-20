@@ -124,12 +124,12 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/main_tViewTemp"
+                    android:id="@+id/listapps_tViewRam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="35%"
+                    android:text="35°"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="60sp"
+                    android:textSize="48sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -138,12 +138,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="RAM"
+                    android:text="Temperatura"
+                    android:textSize="14sp"
                     android:textColor="@color/colorTextSecondary"
-                    app:layout_constraintBottom_toTopOf="@+id/main_tViewTemp"
-                    app:layout_constraintEnd_toEndOf="@+id/main_tViewTemp"
-                    app:layout_constraintStart_toStartOf="@+id/main_tViewTemp"
-                    app:layout_constraintTop_toTopOf="@+id/main_tViewTemp" />
+                    app:layout_constraintBottom_toTopOf="@+id/listapps_tViewRam"
+                    app:layout_constraintEnd_toEndOf="@+id/listapps_tViewRam"
+                    app:layout_constraintStart_toStartOf="@+id/listapps_tViewRam"
+                    app:layout_constraintTop_toTopOf="@+id/listapps_tViewRam" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -151,7 +152,7 @@
             <Button
                 android:backgroundTint="@color/colorPrimary"
                 android:textColor="@color/colorWhite"
-                android:id="@+id/button"
+                android:id="@+id/btnEnfriar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
