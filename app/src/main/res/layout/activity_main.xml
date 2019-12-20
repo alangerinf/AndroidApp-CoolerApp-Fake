@@ -264,6 +264,16 @@
 
             </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
+            <ImageView
+                android:id="@+id/iViewVote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/ic_star_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

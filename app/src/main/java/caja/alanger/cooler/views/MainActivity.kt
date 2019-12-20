@@ -2,14 +2,17 @@ package caja.alanger.cooler.views
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.os.Handler
+import android.os.IBinder
 import android.util.Log
 import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
-import android.os.*
-import android.os.Build
 import android.widget.TextView
 import android.widget.Toast
 import caja.alanger.cooler.R
@@ -19,8 +22,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import jp.takke.cpustats.C
-import kotlinx.android.synthetic.main.activity_main.adView
-import kotlinx.android.synthetic.main.activity_main.fabMain
+import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
 
 
@@ -34,10 +36,7 @@ class MainActivity : Activity() {
     private val mHandlerVG = Handler()
     private lateinit var mRunnable:Runnable
 
-
-    private val mFormat = DecimalFormat("##,###,##0")
     private val mFormatPercent = DecimalFormat("##0.0")
-    private val mFormatTime = DecimalFormat("0.#")
 
     private lateinit var mSR: ServiceReader
 
@@ -79,6 +78,27 @@ class MainActivity : Activity() {
 
         val adRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
+
+        iViewVote.setOnClickListener{
+            val appPackageName =
+                packageName // getPackageName() from Context or Activity object
+
+            try {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("market://details?id=$appPackageName")
+                    )
+                )
+            } catch (anfe: ActivityNotFoundException) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")
+                    )
+                )
+            }
+        }
 
     }
     private fun setTextLabelMemory( percent: TextView, values: List<String>) {
