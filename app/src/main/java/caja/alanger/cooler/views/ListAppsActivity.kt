@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.IBinder
@@ -15,13 +14,12 @@ import android.widget.TextView
 import android.widget.Toast
 import caja.alanger.cooler.SharedPreferencesManager
 import caja.alanger.cooler.Utilities
+import caja.alanger.cooler.Utilities.isInternetAvailable
 import caja.alanger.cooler.services.ServiceReader
 import caja.alanger.cooler.utils.*
 import com.google.android.gms.ads.*
-import jp.takke.cpustats.C
 import kotlinx.android.synthetic.main.activity_list_apps.*
 import kotlinx.android.synthetic.main.activity_list_apps.adView
-import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
 
 class ListAppsActivity : Activity() {
@@ -81,12 +79,31 @@ class ListAppsActivity : Activity() {
         }
 
         btnEnfriar.setOnClickListener {
-            if (mInterstitialAd.isLoaded) {
-                mInterstitialAd.show()
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.")
-                mInterstitialAd.loadAd(AdRequest.Builder().build())
-            }
+            btnEnfriar.isClickable = false
+            val handler = Handler()
+            Thread {
+                if (isInternetAvailable()) {
+
+                    handler.post{
+                        if (mInterstitialAd.isLoaded) {
+                            mInterstitialAd.show()
+                        } else {
+                            btnEnfriar.isClickable = true
+                            Log.d("TAG", "The interstitial wasn't loaded yet.")
+                            mInterstitialAd.loadAd(AdRequest.Builder().build())
+                        }
+                    }
+
+                } else {
+                    SharedPreferencesManager.saveCold(
+                        this@ListAppsActivity,
+                        Utilities.getDateTime()
+                    )
+                    siguiente()
+
+                }
+            }.start()
+
         }
 
 
@@ -99,8 +116,11 @@ class ListAppsActivity : Activity() {
 
     public override fun onStart() {
         super.onStart()
-        bindService(Intent(this, ServiceReader::class.java), mServiceConnection, 0)
+        try{
+            bindService(Intent(this, ServiceReader::class.java), mServiceConnection, 0)
+        }catch (e :Exception){
 
+        }
 
     }
     private val mFormatPercent = DecimalFormat("##0.0")
@@ -108,7 +128,7 @@ class ListAppsActivity : Activity() {
         if (!values.isEmpty()) {
             var ram = (Integer.parseInt(values[0]) * 100.0f / mSR.memTotal).toDouble()
             percent.text =
-                (  mFormatPercent.format(ram*1.2)+ "°")
+                (  mFormatPercent.format(ram*1.2* Utilities.getMultiplicator(this))+ "°")
 
         }else{
             Toast.makeText(this,"vacio", Toast.LENGTH_SHORT).show()

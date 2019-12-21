@@ -16,6 +16,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import caja.alanger.cooler.R
+import caja.alanger.cooler.Utilities.getMultiplicator
 import caja.alanger.cooler.services.ServiceReader
 import caja.alanger.cooler.utils.*
 import com.google.android.gms.ads.AdRequest
@@ -78,6 +79,8 @@ class MainActivity : Activity() {
         val adRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
 
+        Log.d(TAG,"mult"+getMultiplicator(this))
+
 
         iViewInfo.setOnClickListener{
             startActivity(Intent(this@MainActivity, InfoActivity::class.java))
@@ -109,7 +112,7 @@ class MainActivity : Activity() {
             var ram = (Integer.parseInt(values[0]) * 100.0f / mSR.memTotal).toDouble()
             percent.text =
                 (  mFormatPercent.format( ram)+ C.percent)
-            main_tViewTemp.text = ""+mFormatPercent.format(ram*1.2)+"°"
+            main_tViewTemp.text = ""+mFormatPercent.format(ram*1.2*getMultiplicator(this))+"°"
 
         }else{
             Toast.makeText(this,"vacio",Toast.LENGTH_SHORT).show()
