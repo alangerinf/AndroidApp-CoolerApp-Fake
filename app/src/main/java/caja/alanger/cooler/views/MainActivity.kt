@@ -47,7 +47,6 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
         startService(Intent(this, ServiceReader::class.java))
 
-
         mInterstitialAd = InterstitialAd(this)
         mInterstitialAd.adUnitId = getString(R.string.interstitial_ad_unit_id)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
@@ -68,17 +67,21 @@ class MainActivity : Activity() {
             runShowInterestialForce
         )
 
-        fabMain.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                startActivity(Intent(this@MainActivity, LoadingActivity::class.java))
-
-            }
-        })
+        fabMain.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@MainActivity, LoadingActivity::class.java)
+            )
+        }
         MobileAds.initialize(this)
 
         val adRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
 
+
+        iViewInfo.setOnClickListener{
+            startActivity(Intent(this@MainActivity, InfoActivity::class.java))
+        }
         iViewVote.setOnClickListener{
             val appPackageName =
                 packageName // getPackageName() from Context or Activity object

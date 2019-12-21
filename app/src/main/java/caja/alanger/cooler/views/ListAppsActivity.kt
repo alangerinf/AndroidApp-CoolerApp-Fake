@@ -13,6 +13,8 @@ import caja.alanger.cooler.R
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import caja.alanger.cooler.SharedPreferencesManager
+import caja.alanger.cooler.Utilities
 import caja.alanger.cooler.services.ServiceReader
 import caja.alanger.cooler.utils.*
 import com.google.android.gms.ads.*
@@ -66,6 +68,7 @@ class ListAppsActivity : Activity() {
             }
 
             override fun onAdClosed() {
+                SharedPreferencesManager.saveCold(this@ListAppsActivity,Utilities.getDateTime())
                 siguiente()
             }
         }

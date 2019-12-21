@@ -19,8 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.CoolingActivity"></activity>
-        <activity android:name=".views.ListAppsActivity"></activity>
+        <activity android:name=".views.InfoActivity"
+            android:parentActivityName=".views.MainActivity"
+            ></activity>
+        <activity android:name=".views.CoolingActivity" />
+        <activity android:name=".views.ListAppsActivity" />
         <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
