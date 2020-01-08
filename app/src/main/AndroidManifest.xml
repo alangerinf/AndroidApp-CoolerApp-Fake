@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="caja.alanger.cooler">
+    package="caja.alanger.cpucooler">
 
     <permission android:name="android.permission.DEVICE_POWER" />
     <permission android:name="android.permission.REBOOT" />
@@ -19,21 +19,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.InfoActivity"
-            android:parentActivityName=".views.MainActivity"
+        <activity android:name="caja.alanger.cpucooler.views.InfoActivity"
+            android:parentActivityName="caja.alanger.cpucooler.views.MainActivity"
             ></activity>
-        <activity android:name=".views.CoolingActivity" />
-        <activity android:name=".views.ListAppsActivity" />
-        <activity android:name=".views.MainActivity">
+        <activity android:name="caja.alanger.cpucooler.views.CoolingActivity" />
+        <activity android:name="caja.alanger.cpucooler.views.ListAppsActivity" />
+        <activity android:name="caja.alanger.cpucooler.views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.LoadingActivity" />
+        <activity android:name="caja.alanger.cpucooler.views.LoadingActivity" />
 
-        <service android:name=".services.ServiceReader" /> <!-- adview -->
+        <service android:name="caja.alanger.cpucooler.services.ServiceReader" /> <!-- adview -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/appid_admob" />

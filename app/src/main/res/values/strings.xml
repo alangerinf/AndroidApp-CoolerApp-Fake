@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cooler</string>
+    <string name="app_name">CPU Cooler</string>
     <string name="notify_record2">Recording values in the background</string>
     <string name="menu_record">Record</string>
     <string name="notify_read2">Reading values in the background</string>
@@ -15,11 +15,11 @@
 
 
     <!--TODO: admob publicidad ids-->
-    <string name="appid_admob">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="appid_admob">ca-app-pub-3646684063151292~8098627850</string>
     <!--baner-->
-    <string name="adUnitId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="adUnitId">ca-app-pub-3646684063151292/5472464510</string>
     <!--interestial-->
-    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3646684063151292/4159382845</string>
 
 
 </resources>
